@@ -1,4 +1,2 @@
 .env
 .idea
-server/composer.lock
-server/vendor

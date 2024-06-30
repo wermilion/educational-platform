@@ -7,8 +7,3 @@ services:
       dockerfile: ../vue.Dockerfile
     ports:
       - '3000:80'
-    x-develop:
-      watch:
-        - action: sync
-          path: ./client
-          target: /workdir

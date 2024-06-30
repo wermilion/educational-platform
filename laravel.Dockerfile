@@ -19,6 +19,6 @@ COPY composer.json .
 
 RUN composer install
 
-RUN chmod -R 777 ./storage ./bootstrap/cache
+RUN php artisan storage:link && chmod -R 777 ./storage ./bootstrap/cache
 
 CMD php-fpm

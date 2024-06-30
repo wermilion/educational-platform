@@ -10,13 +10,10 @@ services:
         depends_on:
             server-postgres: { condition: service_healthy }
             server-migrator: { condition: service_completed_successfully }
+        volumes:
+            - ./:/workdir
         networks:
             - server
-        x-develop:
-            watch:
-                -   action: rebuild
-                    path: ./app
-                    target: ./app
 
     server-migrator:
         build:

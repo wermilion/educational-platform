@@ -16,5 +16,6 @@ class Lesson extends Model
         'title',
         'description',
         'file',
+        'order',
     ];
 }

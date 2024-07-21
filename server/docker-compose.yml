@@ -1,27 +1,41 @@
-version: '3.9'
+x-build: &build
+    context: .
+    dockerfile: ../laravel.Dockerfile
+
+networks:
+    server:
+        driver: bridge
+
+volumes:
+    server-postgres: { }
+    server-storage: { }
 
 services:
-    server-app:
-        build:
-            context: .
-            dockerfile: ../laravel.Dockerfile
-        restart: unless-stopped
+    server-vendor-installer:
+        build: { <<: *build, target: vendor-source }
         env_file: .env.common
-        depends_on:
-            server-postgres: { condition: service_healthy }
-            server-migrator: { condition: service_completed_successfully }
         volumes:
             - ./:/workdir
         networks:
             - server
 
-    server-migrator:
-        build:
-            context: .
-            dockerfile: ../laravel.Dockerfile
-        command: php artisan migrate --force --seed
-        restart: on-failure
+    server-app:
+        build: { <<: *build, target: server }
         env_file: .env.common
+        restart: on-failure
+        depends_on:
+            server-postgres: { condition: service_healthy }
+            server-migrator: { condition: service_completed_successfully }
+        volumes:
+            - server-storage:/workdir/storage
+        networks:
+            - server
+
+    server-migrator:
+        build: { <<: *build, target: server }
+        env_file: .env.common
+        restart: on-failure
+        command: php artisan migrate --force --seed
         depends_on:
             server-postgres: { condition: service_healthy }
         networks:
@@ -31,12 +45,12 @@ services:
         image: nginx:latest
         ports:
             - '8000:80'
-        volumes:
-            - ./.nginx/nginx.conf/default.conf:/etc/nginx/conf.d/default.conf
-            - ./:/workdir
         restart: unless-stopped
         depends_on:
             server-app: { condition: service_started }
+        volumes:
+            - ./.nginx/nginx.conf/default.conf:/etc/nginx/conf.d/default.conf
+            - ./:/workdir
         networks:
             - server
 
@@ -55,10 +69,3 @@ services:
             - server-postgres:/var/lib/postgresql/data
         networks:
             - server
-
-volumes:
-    server-postgres: { }
-
-networks:
-    server:
-        driver: bridge

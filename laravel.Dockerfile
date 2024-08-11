@@ -1,24 +1,24 @@
-FROM php:8.2-fpm
-
+FROM composer:latest AS vendor-source
 WORKDIR /workdir
+COPY composer.json .
+COPY composer.lock .
+RUN composer i \
+      --ignore-platform-reqs \
+      --no-interaction \
+      --no-ansi \
+      --no-suggest \
+      --prefer-dist \
+      --no-scripts
 
-COPY . .
-
+FROM php:8.2-fpm AS server
+WORKDIR /workdir
 RUN apt-get update && apt-get install -y \
     libpq-dev \
     libicu-dev \
     libzip-dev
-
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
-
+COPY . .
+COPY --from=vendor-source /workdir/vendor /workdir/vendor
 RUN docker-php-ext-install pdo pdo_pgsql intl zip
-
-COPY --from=composer:2.6.5 /usr/bin/composer /usr/local/bin/composer
-
-COPY composer.json .
-
-RUN composer install
-
 RUN php artisan storage:link && chmod -R 777 ./storage ./bootstrap/cache
-
 CMD php-fpm

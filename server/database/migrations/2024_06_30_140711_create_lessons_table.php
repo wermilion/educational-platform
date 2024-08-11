@@ -14,12 +14,16 @@ return new class extends Migration {
             $table->id();
 
             $table->string('title');
-            $table->text('description')->nullable();
-            $table->string('file');
+            $table->text('description');
+            $table->string('file')->nullable();
+            $table->tinyInteger('order');
+
+            $table->foreignId('course_id')->constrained()->cascadeOnDelete();
 
             $table->timestamps();
         });
     }
+
 
     /**
      * Reverse the migrations.

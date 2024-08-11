@@ -31,11 +31,15 @@ class LessonResource extends Resource
                     ->maxLength(255),
                 Forms\Components\Textarea::make('description')
                     ->label('Описание')
+                    ->required()
                     ->columnSpanFull(),
                 Forms\Components\FileUpload::make('file')
                     ->label('Файл')
-                    ->directory('lessons')
+                    ->directory('files')
                     ->required(),
+                Forms\Components\TextInput::make('order')
+                    ->label('Порядковый номер')
+                    ->numeric(),
             ]);
     }
 
@@ -47,9 +51,6 @@ class LessonResource extends Resource
                     ->label('Название')
                     ->searchable(),
             ])
-            ->filters([
-                //
-            ])
             ->actions([
                 Tables\Actions\EditAction::make(),
             ])
@@ -58,13 +59,6 @@ class LessonResource extends Resource
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
             ]);
-    }
-
-    public static function getRelations(): array
-    {
-        return [
-            //
-        ];
     }
 
     public static function getPages(): array

@@ -1,0 +1,17 @@
+@keyframes bg-shadow {
+  0% {
+    transform: translate(-50%, -50%);
+  }
+
+  33% {
+    transform: translate(-45%, -45%);
+  }
+
+  66% {
+    transform: translate(-55%, -55%);
+  }
+
+  100% {
+    transform: translate(-50%, -50%);
+  }
+}

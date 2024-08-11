@@ -1,39 +1,13 @@
 <template>
-    <BaseHeader/>
-    <router-view v-slot="{ Component }">
-        <transition name="page-opacity" mode="out-in">
-            <component :is="Component"/>
-        </transition>
-    </router-view>
-    <BaseFooter/>
-    <transition name="fadeChange">
-        <UIModal
-            v-show="store.state.MainData.modal.IsVisible"
-            :isVisible="store.state.MainData.modal.IsVisible"
-            @closeModal="changeVisibility"
-        />
-    </transition>
+  <HeaderComponent/>
+  <router-view class="min-h-dvh py-32"/>
+  <FooterComponent/>
+
+  <ModalComponent/>
 </template>
 
-<script setup>
-import { useStore } from 'vuex';
-import BaseHeader from '@/components/base/Header/BaseHeader.vue';
-import BaseFooter from '@/components/base/Footer/BaseFooter.vue';
-import UIModal from '@/components/ui/Modal/UIModal.vue';
-
-const store = useStore();
-
-const changeVisibility = () => {
-    store.commit('MainData/changeModalVisibility')
-}
+<script setup lang="ts">
+import HeaderComponent from "@components/base/header/BaseHeader.vue";
+import FooterComponent from "@components/base/footer/BaseFooter.vue";
+import ModalComponent from "@components/ui/modal/ModalWindow.vue";
 </script>
-
-<style lang="scss">
-*,
-*::before,
-*::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-</style>

@@ -1,32 +1,29 @@
-@mixin textEllipsis($count) {
-    word-break: break-word;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: $count;
-    -webkit-box-orient: vertical;
+@mixin _sm {
+  @media screen and (max-width: $tw-sm) {
+    @content;
+  }
 }
 
-@mixin _1920 {
-    @media screen and (max-width: $desktop-medium) {
-        @content
-    }
+@mixin _md {
+  @media screen and (max-width: $tw-md) {
+    @content;
+  }
 }
 
-@mixin _1300 {
-    @media screen and (max-width: $desktop-small) {
-        @content
-    }
+@mixin _lg {
+  @media screen and (max-width: $tw-lg) {
+    @content;
+  }
 }
 
-@mixin _1024 {
-    @media screen and (max-width: $tablet-size) {
-        @content
-    }
+@mixin _xl {
+  @media screen and (max-width: $tw-xl) {
+    @content;
+  }
 }
 
-@mixin _700 {
-    @media screen and (max-width: $mobile-size) {
-        @content
-    }
+@mixin _2xl {
+  @media screen and (max-width: $tw-2xl) {
+    @content;
+  }
 }

@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col gap-24">
+  <div class="flex flex-col gap-16">
     <ProfileHeader/>
     <section class="default-container grid grid-cols-1 xl:grid-cols-4 gap-5 lg:gap-7.5">
       <ProfileAside class="col-span-1"/>

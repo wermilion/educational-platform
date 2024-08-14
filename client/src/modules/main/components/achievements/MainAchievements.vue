@@ -27,9 +27,11 @@
 </template>
 
 <script setup lang="ts">
+import router from "@/app/router";
+
 import {usePortfolioStore} from "@/modules/portfolio/store";
-import {RoutesNamesEnum} from "@/router/enums/RoutesNames.ts";
-import router from "@/router";
+
+import {RoutesNamesEnum} from "@/app/router/enums/RoutesNames.ts";
 import {PortfolioChaptersEnum} from "@/modules/portfolio/enums/PortfolioChapters.ts";
 
 const portfolioChapter = usePortfolioStore();

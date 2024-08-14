@@ -21,7 +21,7 @@
 
 <script setup lang="ts">
 import ButtonComponent from "@components/ui/button/ButtonComponent.vue";
-import {useModalStore} from "@/store/modal";
+import {useModalStore} from "@/app/store/modal";
 
 const modalStore = useModalStore();
 

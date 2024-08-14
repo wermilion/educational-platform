@@ -9,7 +9,7 @@
             class="flex items-center justify-between gap-10"
         >
           <div class="max-w-[350px]">
-            <img :src="'images/portfolio/' + item.src" alt="portfolio item" />
+            <img :src="item.src" alt="portfolio item" />
           </div>
           <p class="max-w-[600px] text-lg">{{ item.description }}</p>
         </div>

@@ -12,9 +12,9 @@
     "baseUrl": ".",
     "paths": {
       "@*": ["./src*"],
-      "@components*": ["./src/components*"],
-      "@assets*": ["./src/assets*"],
-      "@styles*": ["./src/assets/styles*"],
+      "@components*": ["./src/shared/components*"],
+      "@assets*": ["./src/shared/assets*"],
+      "@styles*": ["./src/shared/assets/styles*"],
       "@public*": ["./src/public*"],
       "@uploads*": ["./src/uploads*"]
     },

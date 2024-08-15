@@ -3,6 +3,7 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\CourseResource\Pages;
+use App\Filament\Resources\CourseResource\RelationManagers\LessonsRelationManager;
 use App\Models\Course;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -39,9 +40,11 @@ class CourseResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('title')
+                Tables\Columns\TextColumn::make('name')
                     ->label('Название'),
             ])
+            ->defaultSort('order')
+            ->reorderable('order')
             ->actions([
                 Tables\Actions\EditAction::make(),
             ])
@@ -55,7 +58,7 @@ class CourseResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            LessonsRelationManager::class,
         ];
     }
 

@@ -45,7 +45,7 @@ services:
     server-nginx:
         image: nginx:latest
         ports:
-            - '8888:80'
+            - ${SERVER_PORT?}:80
         restart: unless-stopped
         depends_on:
             server-app: { condition: service_started }
@@ -62,7 +62,7 @@ services:
             - POSTGRES_USER=${POSTGRES_USER?}
             - POSTGRES_PASSWORD=${POSTGRES_PASSWORD?}
         ports:
-            - '5433:5432'
+            - 5433:5432
         restart: always
         healthcheck:
             test: pg_isready -d ${POSTGRES_DB?} -U ${POSTGRES_USER?}

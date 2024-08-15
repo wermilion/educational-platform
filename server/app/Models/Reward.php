@@ -7,11 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * class Reward
  *
- * @property int id
- * @property string $name
- * @property string $type
- * @property string $description
- * @property string $image
+ * @property int id - Идентификатор
+ * @property string $name - Название
+ * @property string $type - Тип
+ * @property string $description - Описание
+ * @property string $image - Изображение
  */
 class Reward extends Model
 {

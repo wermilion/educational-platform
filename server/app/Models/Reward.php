@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 /**
+ * class Reward
+ *
  * @property int id
- * @property string $title
+ * @property string $name
  * @property string $type
  * @property string $description
  * @property string $image
@@ -15,7 +16,7 @@ use Illuminate\Database\Eloquent\Model;
 class Reward extends Model
 {
     protected $fillable = [
-        'title',
+        'name',
         'type',
         'description',
         'image',

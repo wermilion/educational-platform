@@ -5,16 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * @property int $id
- * @property string $title
- * @property string $description
- * @property string $file
+ * class Lesson
+ *
+ * @property int $id Идентификатор
+ * @property string $name Название
+ * @property string $content Контент
+ * @property string $file Файл
+ * @property int $order Позиция
  */
 class Lesson extends Model
 {
     protected $fillable = [
-        'title',
-        'description',
+        'name',
+        'content',
         'file',
         'order',
     ];

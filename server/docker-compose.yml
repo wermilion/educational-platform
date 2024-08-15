@@ -28,6 +28,7 @@ services:
             server-migrator: { condition: service_completed_successfully }
         volumes:
             - server-storage:/workdir/storage
+            - ./:/workdir
         networks:
             - server
 
@@ -44,7 +45,7 @@ services:
     server-nginx:
         image: nginx:latest
         ports:
-            - '8000:80'
+            - '8888:80'
         restart: unless-stopped
         depends_on:
             server-app: { condition: service_started }

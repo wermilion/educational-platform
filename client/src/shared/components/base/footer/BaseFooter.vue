@@ -1,7 +1,7 @@
 <template>
   <footer class="w-full py-5">
-    <div class="flex items-center justify-between gap-10 default-container mx-auto">
-      <div class="flex items-center gap-5">
+    <div class="flex flex-col lg:flex-row items-center justify-between gap-10 default-container mx-auto">
+      <div class="flex flex-col lg:flex-row items-center gap-5">
         <router-link
             v-for="(link, index) in links"
             :key="index"

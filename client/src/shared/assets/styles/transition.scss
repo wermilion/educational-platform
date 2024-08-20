@@ -3,12 +3,12 @@
   transition: opacity 0.5s;
 }
 
-.fade-enter, .fade-leave-to {
+.fade-enter-from, .fade-leave-to {
   opacity: 0;
 }
 
 //fadeChange
-.fadeChange-enter-active {
+.fadeChange-enter-active, .fadeChange-leave-active {
   transition: opacity .4s .15s;
 }
 

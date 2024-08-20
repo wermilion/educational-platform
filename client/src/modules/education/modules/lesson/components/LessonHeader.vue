@@ -6,11 +6,11 @@
       {{ props.description }}
     </span>
 
-    <div class="absolute top-0 right-5 flex items-center lg:justify-center flex-wrap gap-2 lg:gap-5">
+    <div class="absolute top-0 right-5 flex flex-col lg:flex-row items-end lg:items-center lg:justify-center flex-wrap gap-2 lg:gap-5">
       <div
           v-for="(item, index) in props.characteristics"
           :key="index"
-          class="grid grid-cols-1 content-between gap-1.5 border border-dashed border-gray-300 shrink-0 rounded-md px-2.5 py-2 min-w-24 max-w-auto cursor-default">
+          class="grid grid-cols-1 content-between gap-1.5 border border-dashed border-gray-300 shrink-0 rounded-md px-2.5 py-2 min-w-24 max-w-auto cursor-default bg-white">
         <span class="text-gray-900 text-2sm leading-none font-medium">
           {{ item.value }}
         </span>

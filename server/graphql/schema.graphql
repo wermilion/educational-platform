@@ -1,0 +1,36 @@
+type Query {
+    courses: [Course]! @all
+    course(id: ID! @eq): Course @find
+
+    lessons: [Lesson]! @all
+    lesson(id: ID! @eq): Lesson @find
+
+    rewards: [Reward]! @all
+    reward(id: ID! @eq): Reward @find
+}
+
+# Types
+
+type Course {
+    id: ID!
+    name: String!
+    order: Int!
+    lessons: [Lesson]! @hasMany
+}
+
+type Lesson {
+    id: ID!
+    name: String!
+    content: String!
+    file: String
+    order: Int!
+    course: Course! @belongsTo
+}
+
+type Reward {
+    id: ID!
+    name: String!
+    description: String
+    image: String!
+    type: String!
+}

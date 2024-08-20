@@ -13,8 +13,8 @@ return new class extends Migration {
         Schema::create('lessons', function (Blueprint $table) {
             $table->id();
 
-            $table->string('title');
-            $table->text('description');
+            $table->string('name');
+            $table->text('content');
             $table->string('file')->nullable();
             $table->tinyInteger('order');
 
@@ -23,7 +23,6 @@ return new class extends Migration {
             $table->timestamps();
         });
     }
-
 
     /**
      * Reverse the migrations.

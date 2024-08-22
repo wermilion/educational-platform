@@ -6,7 +6,7 @@
              { 'px-6 border-2 rounded-2xl border-primary bg-opacity-50 bg-white backdrop-blur-md' : scrollPosition > 0 }
          ]">
       <button
-          v-if="mobileStore.isMobile"
+          v-if="mobileStore.isMobile "
           :class="[
           'flex flex-col w-[30px] gap-[4px] z-[101] burger-menu',
           {'_active' : mobileStore.burgerMenuIsVisible}

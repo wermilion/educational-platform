@@ -1,12 +1,12 @@
 <template>
-  <section class="default-container flex flex-col gap-16">
+  <section class="default-container flex flex-col gap-8 lg:gap-16">
     <h2>{{ data.title }}</h2>
-    <div class="flex justify-between items-center gap-10">
+    <div class="flex flex-col lg:flex-row justify-between items-center gap-5">
       <article
           v-for="(item, index) in data.items"
           :key="index"
           @click="changeChapter(item.id)"
-          class="flex flex-col max-w-[22%] w-full h-full rounded-xl bg-white cursor-pointer transition duration-300 hover:scale-[101%] shadow-lg"
+          class="flex flex-col max-w-full lg:max-w-[31%] _2xl:max-w-[22%] w-full h-full rounded-xl bg-white cursor-pointer transition duration-300 hover:scale-[101%] shadow-lg"
       >
         <div class="max-h-[250px] overflow-hidden bg-indigo-100 rounded-t-xl">
           <div class="max-w-[80%] mx-auto translate-y-8 overflow-hidden rounded-t-xl">
@@ -19,7 +19,7 @@
         </div>
         <div class="h-full px-3.5 pt-3 pb-3.5">
           <h3 class="font-semibold block text-dark text-xl mb-2">{{ item.title }}</h3>
-          <p class="text-base text-dark">{{ item.text }}</p>
+          <p class="text-base text-dark line-clamp-5">{{ item.text }}</p>
         </div>
       </article>
     </div>

@@ -1,8 +1,8 @@
 <template>
-  <section class="default-container flex flex-col gap-16">
+  <section class="default-container flex flex-col gap-8 lg:gap-16">
     <h2>{{ data.title }}</h2>
 
-    <div class="flex justify-between items-center gap-16">
+    <div class="flex flex-col lg:flex-row justify-between items-center gap-10 lg:gap-16">
       <div class="relative max-w-3xl">
         <img
             :src="'images/' + data.img"

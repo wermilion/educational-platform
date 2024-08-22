@@ -20,14 +20,3 @@
 .fadeChange-enter-from, .fadeChange-leave-to {
   opacity: 0;
 }
-
-//for page
-.page-opacity-enter-active,
-.page-opacity-leave-active {
-  transition: .6s ease all;
-}
-
-.page-opacity-enter-from,
-.page-opacity-leave-to {
-  opacity: 0;
-}

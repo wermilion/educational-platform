@@ -5,13 +5,13 @@
         <div
             v-for="(item, index) in portfolioStore.currentDocs"
             :key="index"
-            :class="{'flex-row-reverse' : index % 2 !== 0 }"
-            class="flex items-center justify-between gap-10"
+            class="flex flex-col lg:flex-row items-center justify-between gap-5 lg:gap-10"
+            :class="{'lg:flex-row-reverse' : index % 2 !== 0 }"
         >
           <div class="max-w-[350px]">
             <img :src="item.src" alt="portfolio item" />
           </div>
-          <p class="max-w-[600px] text-lg">{{ item.description }}</p>
+          <p class="max-w-[600px] text-lg text-center lg:text-left">{{ item.description }}</p>
         </div>
       </div>
     </transition>

@@ -2,7 +2,7 @@
   <HeaderComponent/>
   <router-view v-slot="{ Component }">
     <transition name="fade">
-      <component :is="Component" class="min-h-dvh py-32" />
+      <component :is="Component" class="min-h-dvh pt-32 pb-10 lg:py-32" />
     </transition>
   </router-view>
   <FooterComponent/>
@@ -18,5 +18,5 @@ import FooterComponent from "@components/base/footer/BaseFooter.vue";
 import ModalComponent from "@components/ui/modal/ModalWindow.vue";
 
 const mobileStore = useMobileStore();
-mobileStore.setIsMobile();
+mobileStore.setSize();
 </script>

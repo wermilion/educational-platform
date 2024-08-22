@@ -1,6 +1,6 @@
 <template>
-  <section class="banner default-container flex flex-col md:flex-row justify-between items-center gap-5">
-    <div class="w-2/6 flex flex-col gap-2.5 lg:gap-5">
+  <section class="banner default-container h-full flex flex-col lg:flex-row justify-between items-center gap-5">
+    <div class="w-full lg:w-2/6 flex flex-col gap-2.5 lg:gap-5">
       <h1>
         <span class="text-primary">{{ data.title.coloredPart }} </span>
         {{ data.title.firstPart }}
@@ -8,7 +8,7 @@
       <p class="text-lg lg:text-2xl">{{ data.description }}</p>
       <ButtonComponent :text="data.buttonText" class="w-fit" @click="modalStore.open()"/>
     </div>
-    <div class="relative w-3/6 flex justify-center">
+    <div class="relative w-full lg:w-3/6 flex justify-center">
       <img
           :src="data.img"
           alt="My photo"
@@ -38,7 +38,7 @@ const data = {
 
 <style scoped lang="scss">
 .banner {
-  height: calc(100dvh - 128px);
+  min-height: calc(100dvh - 128px);
 
   .bg-animate-shadow {
     animation: bg-shadow 6s infinite linear;

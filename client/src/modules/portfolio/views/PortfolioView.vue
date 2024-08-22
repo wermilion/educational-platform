@@ -1,7 +1,7 @@
 <template>
-  <div class="default-container grid grid-cols-1 xl:grid-cols-6 gap-10" style="min-height: calc(100dvh - 256px);">
-    <PortfolioAside class="col-span-1"/>
-    <PortfolioContent class="col-span-5"/>
+  <div class="default-container grid grid-cols-1 lg:grid-cols-12 gap-10" style="min-height: calc(100dvh - 256px);">
+    <PortfolioAside class="col-span-3"/>
+    <PortfolioContent class="col-span-9"/>
   </div>
 </template>
 

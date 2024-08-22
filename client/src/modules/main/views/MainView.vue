@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col gap-24">
+  <div class="flex flex-col gap-12 lg:gap-24">
     <MainBanner />
     <MainAchievements />
     <MainAbout />

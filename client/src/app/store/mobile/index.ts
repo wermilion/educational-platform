@@ -6,15 +6,17 @@ import {enableScroll} from "@/utils/enableScroll.ts";
 
 export const useMobileStore = defineStore('mobile', () => {
     const isMobile: Ref<boolean> = ref(false);
+    const isTablet: Ref<boolean> = ref(false);
     const burgerMenuIsVisible: Ref<boolean> = ref(false);
 
-    function setIsMobile() {
+    function setSize(): void {
         isMobile.value = window.innerWidth < 801;
+        isTablet.value = window.innerWidth < 1025;
     }
-    function toggleMobileMenu() {
+    function toggleMobileMenu(): void {
         burgerMenuIsVisible.value = !burgerMenuIsVisible.value;
 
         burgerMenuIsVisible.value ? disableScroll() : enableScroll();
     }
-    return { isMobile, burgerMenuIsVisible, setIsMobile, toggleMobileMenu };
+    return { isMobile, isTablet, burgerMenuIsVisible, setSize, toggleMobileMenu };
 })

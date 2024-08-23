@@ -39,7 +39,8 @@ class LessonsRelationManager extends RelationManager
             ->heading('Уроки')
             ->recordTitleAttribute('name')
             ->columns([
-                Tables\Columns\TextColumn::make('name'),
+                Tables\Columns\TextColumn::make('name')
+                    ->label('Название'),
             ])
             ->defaultSort('order')
             ->reorderable('order')

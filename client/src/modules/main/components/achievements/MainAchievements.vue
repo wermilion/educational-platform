@@ -40,14 +40,14 @@ const data = {
   title: 'Мои достижения',
   items: [
     {
-      id: PortfolioChaptersEnum.DIPLOMAS,
+      id: PortfolioChaptersEnum.DIPLOMA,
       src: '/diplomas/diplom_WSR_3.jpg',
       title: 'Дипломы',
       text: 'Подтверждение успехов и достижений в профессиональных соревнованиях и конкурсах различного уровня, демонстрирующее высокую квалификацию.',
       translateY: 0
     },
     {
-      id: PortfolioChaptersEnum.CERTIFICATES,
+      id: PortfolioChaptersEnum.CERTIFICATE,
       src: '/certificates/certificate_1.jpg',
       title: 'Сертификаты',
       text: 'Документы, удостоверяющие участие и приобретение новых компетенций в рамках образовательных программ и профессиональных мероприятий.',

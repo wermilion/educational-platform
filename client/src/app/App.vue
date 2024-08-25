@@ -1,10 +1,12 @@
 <template>
   <HeaderComponent/>
+
   <router-view v-slot="{ Component }">
     <transition name="fade">
       <component :is="Component" class="min-h-dvh pt-32 pb-10 lg:py-32" />
     </transition>
   </router-view>
+
   <FooterComponent/>
 
   <ModalComponent/>
@@ -19,4 +21,19 @@ import ModalComponent from "@components/ui/modal/ModalWindow.vue";
 
 const mobileStore = useMobileStore();
 mobileStore.setSize();
+
+// TODO: mock request
+/*const GET_POST = gql`
+  query GetPost($id: ID!) {
+    post(id: $id) {
+      id
+      title
+      body
+    }
+  }
+`
+const { result} = useQuery(GET_POST, {
+  id: '1'
+})
+console.log(result)*/
 </script>

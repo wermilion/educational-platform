@@ -18,7 +18,7 @@
 </template>
 
 <script setup lang="ts">
-import {defineEmits, defineProps, ref} from 'vue';
+import {ref} from 'vue';
 import {TextInput} from "@components/ui/inputs/input/_core/types/InputType.ts";
 
 const props = defineProps<TextInput>();

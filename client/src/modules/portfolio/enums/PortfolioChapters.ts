@@ -1,6 +1,6 @@
 export enum PortfolioChaptersEnum {
-    DIPLOMAS = 10,
-    CERTIFICATES = 20,
-    QUALIFICATION = 30,
-    APPRECIATION = 40,
+    DIPLOMA = 'diploma',
+    CERTIFICATE = 'certificate',
+    QUALIFICATION = 'qualification',
+    APPRECIATION = 'appreciation',
 }

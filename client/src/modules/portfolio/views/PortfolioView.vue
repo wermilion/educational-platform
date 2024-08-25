@@ -6,7 +6,6 @@
 </template>
 
 <script setup lang="ts">
-
 import PortfolioAside from "@/modules/portfolio/components/aside/PortfolioAside.vue";
 import PortfolioContent from "@/modules/portfolio/components/content/PortfolioContent.vue";
 </script>

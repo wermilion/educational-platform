@@ -2,12 +2,12 @@ import {PortfolioChaptersEnum} from "@/modules/portfolio/enums/PortfolioChapters
 
 type chaptersType = {
     title: string;
-    id: number;
+    id: string;
 }
 
 export const portfolioChapters: chaptersType[] = [
-    { title: 'Дипломы', id: PortfolioChaptersEnum.DIPLOMAS },
-    { title: 'Сертификаты', id: PortfolioChaptersEnum.CERTIFICATES },
+    { title: 'Дипломы', id: PortfolioChaptersEnum.DIPLOMA },
+    { title: 'Сертификаты', id: PortfolioChaptersEnum.CERTIFICATE },
     { title: 'Повышение квалификации', id: PortfolioChaptersEnum.QUALIFICATION },
     { title: 'Благодарности', id: PortfolioChaptersEnum.APPRECIATION },
 ]

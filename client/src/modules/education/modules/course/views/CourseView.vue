@@ -85,6 +85,6 @@ const data = {
 }
 
 function redirect(id: number): void {
-  router.push({ name: RoutesNamesEnum.LESSON, params: { id } });
+  router.push({name: RoutesNamesEnum.LESSON, params: {id}});
 }
 </script>

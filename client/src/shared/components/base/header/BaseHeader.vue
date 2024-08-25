@@ -44,19 +44,19 @@ const modalStore = useModalStore();
 const mobileStore = useMobileStore();
 const links: { title: string, path: string }[] = [
   {
-    title: 'Главная',
+    name: 'Главная',
     path: '/'
   },
   {
-    title: 'Портфолио',
+    name: 'Портфолио',
     path: `/${RoutesNamesEnum.PORTFOLIO}`
   },
   {
-    title: 'Обо мне',
+    name: 'Обо мне',
     path: `/${RoutesNamesEnum.ABOUT}`
   },
   {
-    title: 'Образование',
+    name: 'Образование',
     path: `/${RoutesNamesEnum.EDUCATION}`
   },
 ]

@@ -6,5 +6,3 @@ export const apolloClient = new ApolloClient({
     uri: import.meta.env.VITE_GQL_API,
     cache
 })
-
-console.log(import.meta.env.VITE_GQL_API)

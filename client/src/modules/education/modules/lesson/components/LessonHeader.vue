@@ -6,7 +6,7 @@
       {{ props.description }}
     </span>
 
-    <div class="absolute top-0 right-5 flex flex-col lg:flex-row items-end lg:items-center lg:justify-center flex-wrap gap-2 lg:gap-5">
+    <div v-if="props.characteristics" class="absolute top-0 right-5 flex flex-col lg:flex-row items-end lg:items-center lg:justify-center flex-wrap gap-2 lg:gap-5">
       <div
           v-for="(item, index) in props.characteristics"
           :key="index"

@@ -6,8 +6,8 @@ type chaptersType = {
 }
 
 export const portfolioChapters: chaptersType[] = [
-    { title: 'Дипломы', id: PortfolioChaptersEnum.DIPLOMA },
-    { title: 'Сертификаты', id: PortfolioChaptersEnum.CERTIFICATE },
-    { title: 'Повышение квалификации', id: PortfolioChaptersEnum.QUALIFICATION },
-    { title: 'Благодарности', id: PortfolioChaptersEnum.APPRECIATION },
+    { name: 'Дипломы', id: PortfolioChaptersEnum.DIPLOMA },
+    { name: 'Сертификаты', id: PortfolioChaptersEnum.CERTIFICATE },
+    { name: 'Повышение квалификации', id: PortfolioChaptersEnum.QUALIFICATION },
+    { name: 'Благодарности', id: PortfolioChaptersEnum.APPRECIATION },
 ]

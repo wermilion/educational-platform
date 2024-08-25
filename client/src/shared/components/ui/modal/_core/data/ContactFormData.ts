@@ -2,7 +2,7 @@ import {FormModalType} from "../types/FormModal.ts";
 import {InputTypesEnum} from "@components/ui/modal/_core/enums/InputTypes.ts";
 
 export const contactFormData: FormModalType = {
-    title: "Связаться со мной",
+    name: "Связаться со мной",
     description: "Если есть вопросы - заполните форму, и я обязательно отвечу!",
     formData: [
         {

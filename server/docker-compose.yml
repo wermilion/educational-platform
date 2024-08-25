@@ -50,9 +50,9 @@ services:
         depends_on:
             server-app: { condition: service_started }
         volumes:
-            - ./.nginx/nginx.conf/default.conf:/etc/nginx/conf.d/default.conf
-            - ./:/workdir
             - server-storage:/workdir/storage
+            - ./:/workdir
+            - ./.nginx/nginx.conf/default.conf:/etc/nginx/conf.d/default.conf
         networks:
             - server
 
@@ -63,7 +63,7 @@ services:
             - POSTGRES_USER=${POSTGRES_USER?}
             - POSTGRES_PASSWORD=${POSTGRES_PASSWORD?}
         ports:
-            - 5433:5432
+            - '5433:5432'
         restart: always
         healthcheck:
             test: pg_isready -d ${POSTGRES_DB?} -U ${POSTGRES_USER?}

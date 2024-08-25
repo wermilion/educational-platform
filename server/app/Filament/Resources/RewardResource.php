@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Enums\RewardTypeEnum;
 use App\Filament\Resources\RewardResource\Pages;
 use App\Models\Reward;
+use Exception;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -25,7 +26,7 @@ class RewardResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('title')
+                Forms\Components\TextInput::make('name')
                     ->label('Заголовок')
                     ->required()
                     ->maxLength(255),
@@ -46,16 +47,28 @@ class RewardResource extends Resource
             ]);
     }
 
+    /**
+     * @throws Exception
+     */
     public static function table(Table $table): Table
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('title')
+                Tables\Columns\TextColumn::make('name')
                     ->label('Заголовок')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('type')
                     ->label('Тип')
+                    ->formatStateUsing(function (string $state) {
+                        return __('enum.' . $state);
+                    })
                     ->searchable(),
+            ])
+            ->filters([
+                Tables\Filters\SelectFilter::make('type')
+                    ->label('Тип')
+                    ->native(false)
+                    ->options(RewardTypeEnum::getTranslatedValues()),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),

@@ -24,6 +24,10 @@ class LessonsRelationManager extends RelationManager
                     ->label('Название')
                     ->required()
                     ->maxLength(255),
+                Forms\Components\Textarea::make('description')
+                    ->label('Описание')
+                    ->maxLength(50)
+                    ->columnSpanFull(),
                 Forms\Components\RichEditor::make('content')
                     ->label('Контент')
                     ->required()

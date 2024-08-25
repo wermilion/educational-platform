@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  *
  * @property int $id - Идентификатор
  * @property string $name - Название
+ * @property string $description - Описание
  * @property string $content - Контент
  * @property string $file - Файл
  * @property int $order - Позиция
@@ -20,6 +21,7 @@ class Lesson extends Model
 {
     protected $fillable = [
         'name',
+        'description',
         'content',
         'file',
         'order',

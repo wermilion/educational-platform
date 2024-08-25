@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  *
  * @property int $id - Идентификатор
  * @property string $name - Название
+ * @property string $description - Описание
  * @property int $order - Позиция
  *
  * @property-read Lesson[] $lessons - Уроки
@@ -18,6 +19,7 @@ class Course extends Model
 {
     protected $fillable = [
         'name',
+        'description',
         'order',
     ];
 

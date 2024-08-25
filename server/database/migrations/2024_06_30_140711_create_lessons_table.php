@@ -14,6 +14,7 @@ return new class extends Migration {
             $table->id();
 
             $table->string('name');
+            $table->text('description');
             $table->text('content');
             $table->string('file')->nullable();
             $table->tinyInteger('order');

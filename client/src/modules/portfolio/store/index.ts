@@ -4,7 +4,7 @@ import {PortfolioChaptersEnum} from "@/modules/portfolio/enums/PortfolioChapters
 import {DocsType} from "@/modules/portfolio/types/DocsTypes.ts";
 
 export const usePortfolioStore = defineStore('portfolio', () => {
-    const currentChapter: Ref<number> = ref(PortfolioChaptersEnum.DIPLOMAS);
+    const currentChapter: Ref<number> = ref(PortfolioChaptersEnum.DIPLOMA);
     const currentDocs: Ref<DocsType[]> = ref([
         { src: 'images/portfolio/certificates/certificate_1.jpg', description: 'Диплом 2022г. Лауреат премии Томской области в сфере образования и науки, здравоохранения и культуры. За высокие достижения в сфере образования и науки, оказывающие эффективное влияние на развитие экономики и социальной сферы Томской области.' },
         { src: 'images/portfolio/certificates/certificate_1.jpg', description: 'Диплом 2022г. Лауреат премии Томской области в сфере образования и науки, здравоохранения и культуры. За высокие достижения в сфере образования и науки, оказывающие эффективное влияние на развитие экономики и социальной сферы Томской области.' },
@@ -22,7 +22,7 @@ export const usePortfolioStore = defineStore('portfolio', () => {
     }
 
     onMounted((): void => {
-        changeChapter(PortfolioChaptersEnum.DIPLOMAS)
+        changeChapter(PortfolioChaptersEnum.DIPLOMA)
     })
 
     return {currentChapter, currentDocs, changeChapter}

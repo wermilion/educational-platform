@@ -15,7 +15,7 @@
         </p>
       </div>
     </div>
-    <div class="flex items-center lg:justify-center flex-wrap gap-2 lg:gap-5">
+    <div v-if="props.characteristics" class="flex items-center lg:justify-center flex-wrap gap-2 lg:gap-5">
       <div
           v-for="(item, index) in props.characteristics"
           :key="index"
@@ -47,7 +47,7 @@ const props = defineProps({
   },
   characteristics: {
     type: Object,
-    required: true
+    required: false
   },
 });
 </script>

@@ -21,19 +21,4 @@ import ModalComponent from "@components/ui/modal/ModalWindow.vue";
 
 const mobileStore = useMobileStore();
 mobileStore.setSize();
-
-// TODO: mock request
-/*const GET_POST = gql`
-  query GetPost($id: ID!) {
-    post(id: $id) {
-      id
-      title
-      body
-    }
-  }
-`
-const { result} = useQuery(GET_POST, {
-  id: '1'
-})
-console.log(result)*/
 </script>

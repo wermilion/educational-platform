@@ -12,6 +12,10 @@ class LessonsRelationManager extends RelationManager
 {
     protected static string $relationship = 'lessons';
 
+    protected static ?string $modelLabel = 'Урок';
+
+    protected static ?string $pluralModelLabel = 'Уроки';
+
     public function form(Form $form): Form
     {
         return $form

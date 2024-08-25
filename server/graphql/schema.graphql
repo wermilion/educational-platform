@@ -22,7 +22,7 @@ type Lesson {
     id: ID!
     name: String!
     content: String!
-    file: String
+    file_url: String
     order: Int!
     course: Course! @belongsTo
 }

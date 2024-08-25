@@ -3,7 +3,7 @@
     <div class="card-body p-5 lg:p-7.5">
       <div class="flex items-center justify-between mb-3 lg:mb-5">
         <div class="flex items-center justify-center rounded-md overflow-hidden">
-          <img alt="course image" class="h-11 shrink-0" :src="props.src">
+          <img alt="course image" class="h-11 shrink-0" :src="props.image">
         </div>
         <div class="btn btn-sm btn-icon btn-clear btn-light">
           <i class="ki-filled ki-exit-right-corner"></i>
@@ -11,9 +11,9 @@
       </div>
       <div class="flex flex-col gap-1 lg:gap-2.5">
         <h4 class="text-lg font-semibold text-gray-900 group-hover:text-primary transition duration-300">
-          {{ props.title }}
+          {{ props.name }}
         </h4>
-        <span class="text-sm text-gray-600">
+        <span class="text-sm text-gray-600 line-clamp-5">
           {{ props.description }}
         </span>
       </div>
@@ -23,7 +23,7 @@
 
 <script setup lang="ts">
 const props = defineProps({
-  title: {
+  name: {
     type: String,
     required: true
   },
@@ -31,7 +31,7 @@ const props = defineProps({
     type: String,
     required: true
   },
-  src: {
+  image: {
     type: String,
     required: true
   },

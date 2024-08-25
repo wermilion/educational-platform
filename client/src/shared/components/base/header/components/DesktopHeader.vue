@@ -7,7 +7,7 @@
         class="text-xl transition-all duration-300 hover:text-primary"
         :class="route.path === link.path ? 'text-primary' : 'text-darkest-primary'"
     >
-      {{ link.title }}
+      {{ link.name }}
     </router-link>
   </div>
 </template>
@@ -16,8 +16,8 @@
 import {useMobileStore} from "@/app/store/mobile";
 import {useRoute} from "vue-router";
 
+defineProps<{ links: { name: string, path: string }[] }>()
+
 const mobileStore = useMobileStore();
 const route = useRoute();
-
-defineProps<{ links: { title: string, path: string }[] }>()
 </script>

@@ -42,7 +42,7 @@ import MobileHeader from "@components/base/header/components/MobileHeader.vue";
 
 const modalStore = useModalStore();
 const mobileStore = useMobileStore();
-const links: { title: string, path: string }[] = [
+const links: { name: string, path: string }[] = [
   {
     name: 'Главная',
     path: '/'

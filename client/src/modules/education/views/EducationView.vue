@@ -1,15 +1,26 @@
 <template>
   <div class="default-container flex flex-col gap-16">
     <h2>Образовательные курсы</h2>
+
     <section class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-5 gap-5 lg:gap-7.5">
-      <CourseCard
-        v-for="item in data"
-        :key="item.id"
-        :title="item.title"
-        :description="item.description"
-        :src="item.src"
-        @click="redirect(item.id)"
-      />
+      <template v-if="!loading">
+        <!--TODO: Add image-->
+        <CourseCard
+            v-for="item in result.courses"
+            :key="item.id"
+            :name="item.name"
+            :description="item.description"
+            :image="'/images/mock/c-sharp-logo.png'"
+            @click="redirect(item.id)"
+        />
+      </template>
+
+      <template v-if="loading">
+        <CourseCardSkeleton
+            v-for="n in 5"
+            :key="n"
+        />
+      </template>
     </section>
   </div>
 </template>
@@ -18,54 +29,15 @@
 import router from "@/app/router";
 import {RoutesNamesEnum} from "@/app/router/enums/RoutesNames.ts";
 
-import CourseCard from "@/modules/education/components/course-card/CourseCard.vue";
+import {useQuery} from "@vue/apollo-composable";
+import {GET_COURSES} from "@/modules/education/requests/getCourses.ts";
 
-const data = [
-  {
-    id: 1,
-    title: '1С',
-    description: 'Язык для создания кодов и алгоритмов внутри программного обеспечения «1C:Предприятие» и оптимизированный для работы на платформе.',
-    src: '/images/mock/1C-logo.png'
-  },
-  {
-    id: 2,
-    title: 'C#',
-    description: 'По-настоящему универсальный язык: на нём пишут игры, десктопные приложения, веб-сервисы, нейросети и даже графику для метавселенных.',
-    src: '/images/mock/c-sharp-logo.png'
-  },
-  {
-    id: 3,
-    title: 'БД',
-    description: 'Иимеющая название совокупность данных, которая отражает состояние объектов и их отношений в рассматриваемой предметной области.',
-    src: '/images/mock/db-logo.png'
-  },
-  {
-    id: 4,
-    title: 'Web',
-    description: 'Создать живого и многофункционального сайта, который привлекателен для пользователя, хорошо и быстро работает, закрывает потребности бизнеса.',
-    src: '/images/mock/js-logo.png'
-  },
-  {
-    id: 5,
-    title: 'Web',
-    description: 'Создать живогоо и быстро работает, закрывает потребности бизнеса.',
-    src: '/images/mock/js-logo.png'
-  },
-  {
-    id: 6,
-    title: 'Web',
-    description: 'Создать живогоо и быстро работает, закрывает потребности бизнеса.',
-    src: '/images/mock/js-logo.png'
-  },
-  {
-    id: 7,
-    title: 'БД',
-    description: 'Иимеющая название совокупность данных, которая отражает состояние объектов и их отношений в рассматриваемой предметной области.',
-    src: '/images/mock/db-logo.png'
-  },
-]
+import CourseCard from "@/modules/education/components/course-card/CourseCard.vue";
+import CourseCardSkeleton from "@/modules/education/components/course-card/CourseCardSkeleton.vue";
+
+const {result, loading} = useQuery(GET_COURSES)
 
 function redirect(id: number): void {
-  router.push({ name: RoutesNamesEnum.COURSE, params: { id } });
+  router.push({name: RoutesNamesEnum.COURSE, params: {id}});
 }
 </script>

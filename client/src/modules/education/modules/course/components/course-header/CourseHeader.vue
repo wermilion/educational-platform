@@ -1,7 +1,7 @@
 <template>
   <div class="default-container flex flex-col items-center gap-2 lg:gap-3.5 py-4 lg:py-7">
     <img :src="props.src" alt="profile image" class="rounded-2xl size-[150px] shrink-0">
-    <div class="text-lg leading-5 font-semibold text-gray-900">{{ props.title }}</div>
+    <div class="text-lg leading-5 font-semibold text-gray-900">{{ props.name }}</div>
     <span class="text-gray-600 max-w-2xl text-center">
       {{ props.description }}
     </span>
@@ -10,7 +10,7 @@
 
 <script setup lang="ts">
 const props = defineProps({
-  title: {
+  name: {
     type: String,
     required: true
   },

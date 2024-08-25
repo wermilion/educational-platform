@@ -4,11 +4,11 @@
       style="flex-direction: row">
     <div class="flex items-center gap-5">
       <div class="flex items-center justify-center rounded-md overflow-hidden">
-        <img alt="course image" class="h-11 shrink-0" :src="props.src">
+        <img alt="course image" class="h-11 shrink-0" :src="props.image">
       </div>
       <div class="flex flex-col">
         <h4 class="text-lg font-medium text-gray-900 group-hover:text-primary transition duration-300">
-          {{ props.title }}
+          {{ props.name }}
         </h4>
         <p class="text-sm text-gray-700 max-w-xl">
           {{ props.description }}
@@ -33,7 +33,7 @@
 
 <script setup lang="ts">
 const props = defineProps({
-  title: {
+  name: {
     type: String,
     required: true
   },
@@ -41,7 +41,7 @@ const props = defineProps({
     type: String,
     required: true
   },
-  src: {
+  image: {
     type: String,
     required: true
   },

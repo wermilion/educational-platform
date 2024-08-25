@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources;
 
+use App\Enums\RewardTypeEnum;
 use App\Filament\Resources\RewardResource\Pages;
 use App\Models\Reward;
 use Filament\Forms;
@@ -28,10 +29,11 @@ class RewardResource extends Resource
                     ->label('Заголовок')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('type')
+                Forms\Components\Select::make('type')
                     ->label('Тип')
+                    ->native(false)
                     ->required()
-                    ->maxLength(255),
+                    ->options(RewardTypeEnum::getTranslatedValues()),
                 Forms\Components\Textarea::make('description')
                     ->label('Описание')
                     ->columnSpanFull(),
@@ -39,7 +41,8 @@ class RewardResource extends Resource
                     ->label('Изображение')
                     ->image()
                     ->directory('rewards')
-                    ->required(),
+                    ->required()
+                    ->columnSpanFull(),
             ]);
     }
 
@@ -54,9 +57,6 @@ class RewardResource extends Resource
                     ->label('Тип')
                     ->searchable(),
             ])
-            ->filters([
-                //
-            ])
             ->actions([
                 Tables\Actions\EditAction::make(),
             ])
@@ -65,13 +65,6 @@ class RewardResource extends Resource
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
             ]);
-    }
-
-    public static function getRelations(): array
-    {
-        return [
-            //
-        ];
     }
 
     public static function getPages(): array

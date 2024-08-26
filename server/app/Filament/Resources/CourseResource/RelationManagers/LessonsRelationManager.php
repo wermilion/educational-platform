@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\CourseResource\RelationManagers;
 
+use Closure;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\RelationManagers\RelationManager;
@@ -27,7 +28,15 @@ class LessonsRelationManager extends RelationManager
                 Forms\Components\Textarea::make('description')
                     ->label('Описание')
                     ->required()
-                    ->maxLength(50)
+                    ->rules([
+                        function () {
+                            return function (string $attribute, $value, Closure $fail) {
+                                if (mb_strlen(strip_tags($value)) >= 1000) {
+                                    $fail('Поле "Контент" должно быть не более 1000 символов');
+                                }
+                            };
+                        },
+                    ])
                     ->columnSpanFull(),
                 Forms\Components\RichEditor::make('content')
                     ->label('Контент')

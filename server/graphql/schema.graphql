@@ -14,6 +14,7 @@ type Course {
     id: ID!
     name: String!
     description: String!
+    image: String! @field(resolver: "App\\GraphQL\\Types\\Image")
     order: Int!
     lessons: [Lesson]! @hasMany
 }
@@ -26,12 +27,19 @@ type Lesson {
     file_url: String
     order: Int!
     course: Course! @belongsTo
+    characteristics: [Characteristic]! @hasMany
 }
 
 type Reward {
     id: ID!
     name: String!
     description: String!
-    image: String!
+    image: String! @field(resolver: "App\\GraphQL\\Types\\Image")
     type: String!
+}
+
+type Characteristic {
+    id: ID!
+    name: String!
+    value: String!
 }

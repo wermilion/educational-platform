@@ -37,6 +37,7 @@ class RewardResource extends Resource
                     ->options(RewardTypeEnum::getTranslatedValues()),
                 Forms\Components\Textarea::make('description')
                     ->label('Описание')
+                    ->required()
                     ->columnSpanFull(),
                 Forms\Components\FileUpload::make('image')
                     ->label('Изображение')

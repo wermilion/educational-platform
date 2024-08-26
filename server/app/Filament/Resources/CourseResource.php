@@ -35,7 +35,14 @@ class CourseResource extends Resource
                     ->maxLength(255),
                 Forms\Components\Textarea::make('description')
                     ->label('Описание')
+                    ->required()
                     ->maxLength(50)
+                    ->columnSpanFull(),
+                Forms\Components\FileUpload::make('image')
+                    ->label('Лого')
+                    ->required()
+                    ->image()
+                    ->directory('logos')
                     ->columnSpanFull(),
             ]);
     }

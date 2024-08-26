@@ -11,7 +11,10 @@
           <div class="max-w-[350px]">
             <img :src="item.image" alt="portfolio item"/>
           </div>
-          <p class="max-w-[600px] text-lg text-center lg:text-left">{{ item.description }}</p>
+          <div class="max-w-[600px] flex flex-col gap-2 ">
+            <p class="font-semibold text-lg text-center lg:text-left">{{ item.name }}</p>
+            <p class=" text-lg text-center lg:text-left">{{ item.description }}</p>
+          </div>
         </div>
       </div>
 

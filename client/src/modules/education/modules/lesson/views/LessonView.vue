@@ -22,11 +22,11 @@ const data = {
   src: '/images/mock/c-sharp-logo.png',
   characteristics: [
     {
-      title: 'Длительность',
+      name: 'Длительность',
       value: '2 часа'
     },
     {
-      title: 'Уровень',
+      name: 'Уровень',
       value: 'Начальный'
     }
   ],

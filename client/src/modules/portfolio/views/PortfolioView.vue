@@ -27,13 +27,13 @@ const {currentChapter} = storeToRefs(portfolioStore);
 const rewards: Ref<RewardType[]> = ref([]);
 const isLoading: Ref<boolean> = ref(false);
 
-const {result, load} = useLazyQuery(GET_REWARDS, {id: currentChapter});
+const {load, result} = useLazyQuery(GET_REWARDS, {type: currentChapter});
 
 async function getRewards() {
   isLoading.value = true;
 
   await load();
-  rewards.value = result || [];
+  rewards.value = result.value.rewards || [];
   isLoading.value = false;
 }
 

@@ -15,7 +15,7 @@
           {{ item.value }}
         </span>
         <span class="text-gray-700 text-xs">
-          {{ item.title }}
+          {{ item.name }}
         </span>
       </div>
     </div>

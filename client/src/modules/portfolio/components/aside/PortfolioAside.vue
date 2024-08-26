@@ -1,5 +1,25 @@
 <template>
   <aside>
+    <transition name="fade">
+      <div
+          v-show="(!mobileStore.isMobile && !mobileStore.isTablet) || showFilters"
+          :class="filtersClasses"
+          class="flex flex-col gap-3 bg-white">
+        <button
+            v-for="(item, index) in portfolioChapters"
+            :key="index"
+            class="flex items-center border p-3 rounded-xl text-lg transition duration-300"
+            :class="item.id === portfolioStore.currentChapter ?
+             'bg-primary text-white' :
+              'text-black border-primary hover:bg-primary hover:text-white'"
+            @click="changeChapter(item.id)"
+        >
+          {{ item.name }}
+        </button>
+      </div>
+    </transition>
+
+    <!--for mobile version-->
     <button
         v-if="(mobileStore.isMobile || mobileStore.isTablet)"
         class="fixed left-0 top-32 cursor-pointer border-2 border-primary rounded-full rounded-l-none p-2 pe-4 pb-1 bg-primary"
@@ -14,25 +34,6 @@
           class="fixed top-0 left-0 w-full h-dvh bg-black bg-opacity-50 z-20"
           @click="changeState"
       >
-      </div>
-    </transition>
-
-    <transition name="fade">
-      <div
-          v-show="(!mobileStore.isMobile && !mobileStore.isTablet) || showFilters"
-          :class="filtersClasses"
-          class="flex flex-col gap-3 bg-white">
-        <button
-            v-for="(item, index) in portfolioChapters"
-            :key="index"
-            class="flex items-center border p-3 rounded-xl text-lg transition duration-300"
-            :class="item.id === portfolioStore.currentChapter ?
-           'bg-primary text-white' :
-            'text-black border-primary hover:bg-primary hover:text-white'"
-            @click="changeChapter(item.id)"
-        >
-          {{ item.title }}
-        </button>
       </div>
     </transition>
   </aside>

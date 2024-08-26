@@ -19,7 +19,7 @@ const data = {
   id: 1,
   title: 'HTML',
   description: 'После прохождения урока вы освоите HTML',
-  src: '/images/mock/js-logo.png',
+  src: '/images/mock/c-sharp-logo.png',
   characteristics: [
     {
       title: 'Длительность',

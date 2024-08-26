@@ -43,14 +43,14 @@ const data = {
     {
       title: '1С',
       text: 'На этом канале Вы найдете бесплатные онлайн уроки обучения 1С для пользователей и программистов.',
-      src: '1c_course_logo.jpg',
+      src: '1c_course_logo.webp',
       path: 'https://www.youtube.com/@ironskills-1c/playlists',
       translateY: 0
     },
     {
       title: 'Веб-разработка',
       text: 'Научитесь создавать и программировать современные веб-интерфейсы, начните карьеру в IT, оттачивайте своё мастерство.',
-      src: 'html_academy_logo.png',
+      src: 'html_academy_logo.webp',
       path: 'https://htmlacademy.ru/',
       translateY: 0
     },

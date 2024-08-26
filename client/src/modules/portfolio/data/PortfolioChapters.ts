@@ -1,7 +1,7 @@
 import {PortfolioChaptersEnum} from "@/modules/portfolio/enums/PortfolioChapters.ts";
 
 type chaptersType = {
-    title: string;
+    name: string;
     id: string;
 }
 

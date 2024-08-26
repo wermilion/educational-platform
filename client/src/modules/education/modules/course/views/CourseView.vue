@@ -4,7 +4,7 @@
       <CourseHeader
           :name="result.course.name"
           :description="result.course.description"
-          :src="result.course.image"
+          :image="result.course.image"
       />
 
       <div class="flex flex-col gap-5 default-container">
@@ -44,7 +44,8 @@ import ShortLesson from "@/modules/education/modules/course/components/short-les
 import CourseHeaderSkeleton from "@/modules/education/modules/course/components/course-header/CourseHeaderSkeleton.vue";
 import ShortLessonSkeleton from "@/modules/education/modules/course/components/short-lesson/ShortLessonSkeleton.vue";
 
-const {result, loading} = useQuery(GET_COURSE, {id: '1'})
+const courseId = router.currentRoute.value.params.id;
+const {result, loading} = useQuery(GET_COURSE, {id: courseId})
 
 function redirect(id: number): void {
   router.push({name: RoutesNamesEnum.LESSON, params: {id}});

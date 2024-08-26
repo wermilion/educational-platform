@@ -2,7 +2,7 @@ import {gql} from "graphql-tag";
 
 export const GET_COURSE = gql`
     query getCourse($id: ID!) {
-        course (id: $id) {
+        course(id: $id) {
             id
             name
             description

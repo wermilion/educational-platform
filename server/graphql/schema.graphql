@@ -5,8 +5,7 @@ type Query {
     lessons: [Lesson]! @all
     lesson(id: ID! @eq): Lesson @find
 
-    rewards: [Reward]! @all
-    reward(id: ID! @eq): Reward @find
+    rewards(type: String! @where): [Reward]! @all
 }
 
 # Types
@@ -32,7 +31,7 @@ type Lesson {
 type Reward {
     id: ID!
     name: String!
-    description: String
+    description: String!
     image: String!
     type: String!
 }

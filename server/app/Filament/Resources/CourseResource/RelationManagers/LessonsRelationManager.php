@@ -26,17 +26,20 @@ class LessonsRelationManager extends RelationManager
                     ->maxLength(255),
                 Forms\Components\Textarea::make('description')
                     ->label('Описание')
+                    ->required()
                     ->maxLength(50)
                     ->columnSpanFull(),
                 Forms\Components\RichEditor::make('content')
                     ->label('Контент')
                     ->required()
+                    ->fileAttachmentsDirectory('attachments')
                     ->maxLength(1000)
                     ->columnSpanFull(),
                 Forms\Components\FileUpload::make('file')
                     ->label('Вложение')
                     ->disk('public')
                     ->directory('attachments')
+                    ->acceptedFileTypes(['application/pdf'])
                     ->columnSpanFull(),
             ]);
     }

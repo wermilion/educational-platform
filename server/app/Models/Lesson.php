@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * class Lesson
@@ -14,6 +15,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property string $content - Контент
  * @property string $file - Файл
  * @property int $order - Позиция
+ * @property int $course_id - Идентификатор курса
  *
  * @property-read Course $course - Курс
  */
@@ -25,6 +27,7 @@ class Lesson extends Model
         'content',
         'file',
         'order',
+        'course_id',
     ];
 
     protected static function boot(): void
@@ -42,5 +45,10 @@ class Lesson extends Model
     public function course(): BelongsTo
     {
         return $this->belongsTo(Course::class);
+    }
+
+    public function characteristics(): HasMany
+    {
+        return $this->hasMany(Characteristic::class);
     }
 }

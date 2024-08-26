@@ -6,6 +6,7 @@ export const GET_COURSES = gql`
             id
             name
             description
+            image
         }
     }
 `

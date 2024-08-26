@@ -6,6 +6,7 @@ export const GET_COURSE = gql`
             id
             name
             description
+            image
             lessons {
                 id
                 name

@@ -4,13 +4,12 @@
 
     <section class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-5 gap-5 lg:gap-7.5">
       <template v-if="!loading">
-        <!--TODO: Add image-->
         <CourseCard
             v-for="item in result.courses"
             :key="item.id"
             :name="item.name"
             :description="item.description"
-            :image="'/images/mock/c-sharp-logo.png'"
+            :image="item.image"
             @click="redirect(item.id)"
         />
       </template>

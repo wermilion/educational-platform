@@ -8,13 +8,12 @@
       />
 
       <div class="flex flex-col gap-5 default-container">
-        <!--TODO: Add image-->
         <ShortLesson
             v-for="lesson in result.course.lessons"
             :key="lesson.id"
             :name="lesson.name"
             :description="lesson.description"
-            :image="'/images/mock/c-sharp-logo.png'"
+            :image="result.course.image"
             :characteristics="lesson.characteristics"
             @click="redirect(lesson.id)"
         />

@@ -1,8 +1,8 @@
 <template>
   <div class="default-container relative flex flex-col items-center gap-2 lg:gap-3.5 py-4 lg:py-7">
-    <img :src="props.src" alt="profile image" class="rounded-2xl size-[150px] shrink-0">
-    <div class="text-lg leading-5 font-semibold text-gray-900">{{ props.title }}</div>
-    <span class="text-gray-600 max-w-2xl text-center">
+    <img :src="props.image" alt="profile image" class="rounded-2xl size-[150px] shrink-0">
+    <div class="text-lg leading-5 font-semibold text-gray-900">{{ props.name }}</div>
+    <span v-if="props.description" class="text-gray-600 max-w-2xl text-center">
       {{ props.description }}
     </span>
 
@@ -24,21 +24,21 @@
 
 <script setup lang="ts">
 const props = defineProps({
-  title: {
+  name: {
     type: String,
     required: true
   },
   description: {
     type: String,
-    required: true
+    required: false
   },
-  src: {
+  image: {
     type: String,
     required: true
   },
   characteristics: {
     type: Object,
-    required: true
+    required: false
   },
 });
 </script>

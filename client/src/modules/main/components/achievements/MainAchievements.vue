@@ -70,7 +70,7 @@ const data = {
   ]
 }
 
-function changeChapter(id: number) {
+function changeChapter(id: string) {
   portfolioChapter.changeChapter(id);
   router.push({ name: RoutesNamesEnum.PORTFOLIO });
 }

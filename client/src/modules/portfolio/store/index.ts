@@ -5,7 +5,7 @@ import {PortfolioChaptersEnum} from "@/modules/portfolio/enums/PortfolioChapters
 export const usePortfolioStore = defineStore('portfolio', () => {
     const currentChapter: Ref<string> = ref(PortfolioChaptersEnum.DIPLOMA);
 
-    function changeChapter(chapterId: number): void {
+    function changeChapter(chapterId: string): void {
         if (currentChapter.value === chapterId) return;
 
         currentChapter.value = chapterId;

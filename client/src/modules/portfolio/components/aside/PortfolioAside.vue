@@ -67,7 +67,7 @@ function changeState(): void {
   }
 }
 
-function changeChapter(id: number): void {
+function changeChapter(id: string): void {
   portfolioStore.changeChapter(id)
 }
 </script>

@@ -1,0 +1,11 @@
+services:
+  client-app:
+    build:
+      context: ..
+      dockerfile: vue.Dockerfile
+    env_file:
+      - .env.common
+    volumes:
+      - ./:/workdir
+    networks:
+      - server

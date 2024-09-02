@@ -2,23 +2,11 @@ x-build: &build
     context: .
     dockerfile: ../laravel.Dockerfile
 
-networks:
-    server:
-        driver: bridge
-
 volumes:
     server-postgres: { }
     server-storage: { }
 
 services:
-    server-vendor-installer:
-        build: { <<: *build, target: vendor-source }
-        env_file: .env.common
-        volumes:
-            - ./:/workdir
-        networks:
-            - server
-
     server-app:
         build: { <<: *build, target: server }
         env_file: .env.common
@@ -39,20 +27,6 @@ services:
         command: php artisan migrate --force --seed
         depends_on:
             server-postgres: { condition: service_healthy }
-        networks:
-            - server
-
-    server-nginx:
-        image: nginx:latest
-        ports:
-            - ${SERVER_PORT?}:80
-        restart: unless-stopped
-        depends_on:
-            server-app: { condition: service_started }
-        volumes:
-            - server-storage:/workdir/storage
-            - ./:/workdir
-            - ./.nginx/nginx.conf/default.conf:/etc/nginx/conf.d/default.conf
         networks:
             - server
 

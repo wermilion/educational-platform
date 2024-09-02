@@ -49,6 +49,6 @@ class User extends Authenticatable implements FilamentUser
 
     public function canAccessPanel(Panel $panel): bool
     {
-        return static::query()->where('email', $this->email)->exists();
+        return true;
     }
 }

@@ -1,2 +1,22 @@
 include:
   - ./server/docker-compose.yml
+  - ./client/docker-compose.yml
+
+networks:
+  server:
+    driver: bridge
+
+services:
+  web-server:
+    image: nginx:alpine
+    ports:
+      - '80:80'
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - ./server:/workdir
+      - server-storage:/workdir/storage
+    depends_on:
+      server-app: { condition: service_started }
+      client-app: { condition: service_started }
+    networks:
+      - server

@@ -20,5 +20,4 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 COPY . .
 COPY --from=vendor-source /workdir/vendor /workdir/vendor
 RUN docker-php-ext-install pdo pdo_pgsql intl zip
-RUN php artisan storage:link && chmod -R 777 ./storage ./bootstrap/cache
-CMD php-fpm
+RUN php artisan storage:link && chown www-data:www-data ./bootstrap/cache ./storage

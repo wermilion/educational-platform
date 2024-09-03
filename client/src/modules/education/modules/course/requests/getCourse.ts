@@ -13,6 +13,11 @@ export const GET_COURSE = gql`
                 description
                 content
                 file_url
+                characteristics {
+                    id
+                    name
+                    value
+                }
             }
         }
     }

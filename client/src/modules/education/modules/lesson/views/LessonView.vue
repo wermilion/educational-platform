@@ -42,10 +42,19 @@ watch(loading, () => {
 })
 </script>
 
-<style>
+<style scoped lang="scss">
 figure {
   figcaption {
     display: none;
+  }
+
+  a {
+    display: block;
+    max-height: 600px;
+
+    img {
+      height: auto;
+    }
   }
 }
 </style>

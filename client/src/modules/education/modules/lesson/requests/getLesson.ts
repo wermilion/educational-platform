@@ -5,6 +5,7 @@ export const GET_LESSON = gql`
         lesson(id: $id) {
             name
             content
+            file_url
             characteristics {
                 name
                 value

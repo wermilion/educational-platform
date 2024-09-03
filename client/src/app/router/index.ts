@@ -38,11 +38,17 @@ const routes: RouteRecordRaw[] = [
         path: `/${RoutesNamesEnum.COURSE}/:id`,
         name: RoutesNamesEnum.COURSE,
         component: () => import('@/modules/education/modules/course/views/CourseView.vue'),
+        meta: {
+            title: 'Курс'
+        }
     },
     {
         path: `/${RoutesNamesEnum.LESSON}/:id`,
         name: RoutesNamesEnum.LESSON,
         component: () => import('@/modules/education/modules/lesson/views/LessonView.vue'),
+        meta: {
+            title: 'Урок'
+        }
     },
     {
         path: RoutesNamesEnum.ERROR,

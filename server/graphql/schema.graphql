@@ -24,7 +24,7 @@ type Lesson {
     name: String!
     description: String!
     content: String!
-    file_url: String
+    file_url: String!
     order: Int!
     course: Course! @belongsTo
     characteristics: [Characteristic]! @hasMany

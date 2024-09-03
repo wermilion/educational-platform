@@ -32,6 +32,7 @@
 </template>
 
 <script setup lang="ts">
+import {watch} from "vue";
 import router from "@/app/router";
 import {RoutesNamesEnum} from "@/app/router/enums/RoutesNames.ts";
 
@@ -49,4 +50,10 @@ const {result, loading} = useQuery(GET_COURSE, {id: courseId})
 function redirect(id: number): void {
   router.push({name: RoutesNamesEnum.LESSON, params: {id}});
 }
+
+watch(loading, () => {
+  if (!loading.value) {
+    document.title += (' - ' + result.value.course.name)
+  }
+})
 </script>

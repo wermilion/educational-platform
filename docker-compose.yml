@@ -13,6 +13,7 @@ services:
       - '80:80'
     volumes:
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - ./client/dist:/usr/share/nginx/html
       - ./server:/workdir
       - server-storage:/workdir/storage
     depends_on:

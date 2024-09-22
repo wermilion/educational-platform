@@ -5,5 +5,8 @@ services:
       dockerfile: vue.Dockerfile
     volumes:
       - ./:/workdir
-    networks:
-      - server
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.client-app.rule=Host(`${BASE_DOMAIN?}`)
+      - traefik.http.services.client-app.loadbalancer.server.port=3000
+      - traefik.docker.network=server
